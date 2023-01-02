@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.io.FileOutputStream" %>
+<%@ page import="java.io.FileWriter" %>
+<%@ page import="java.io.FileNotFoundException" %><%--
   Created by IntelliJ IDEA.
   User: vadim
   Date: 29.12.2022
@@ -17,10 +19,15 @@
     if (login.equals("") || password.equals("")) {
         request.getServletContext().getRequestDispatcher("/my-registration.jsp").forward(request, response);
     } else {%>
-<!--<h1 style="text-align: center"> You registered successfully!</h1>
--->
-email: <%= request.getParameter("email")%>
-password: <%= request.getParameter("password")%>
+<h1 style="text-align: center"> You registered successfully!</h1>
+
+<% try (FileWriter fileWriter = new FileWriter("C:\\Users\\vadim\\IdeaProjects\\HomeWorkWithJSP\\src\\main\\webapp\\info.txt")){
+    fileWriter.write("Login: " + login+"\n");
+    fileWriter.write("Password: " + password);
+} catch (FileNotFoundException e){
+    e.printStackTrace();
+}
+%>
 <%}%>
 </body>
 </html>
