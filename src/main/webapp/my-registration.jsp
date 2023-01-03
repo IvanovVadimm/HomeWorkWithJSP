@@ -12,13 +12,13 @@
 <body>
 <form action="lol.jsp">
     <div style="text-align: center">
-    <h3>Login:</h3>
-    <input name="email">
-    <br><br>
-    <h3>Password:</h3>
-    <input name="password" type="password" >
-    <br><br>
-    <input type="submit" value="Submit">
+        <h3>Login:</h3>
+        <input name="email" type="email" placeholder="Enter your email">
+        <br><br>
+        <h3>Password:</h3>
+        <input name="password" class="form-control" type="password">
+        <br><br>
+        <input type="submit" value="Submit">
     </div>
 </form>
 
