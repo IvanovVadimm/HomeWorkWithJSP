@@ -15,6 +15,7 @@
 </head>
 <body>
 <%
+    String filePath = "C:\\Users\\vadim\\IdeaProjects\\HomeWorkWithJSP\\src\\main\\webapp\\info.txt";
     String login = request.getParameter("email");
     String password = request.getParameter("password");
     if (login.equals("") || password.equals("")) {
@@ -22,11 +23,11 @@
     } else {%>
 <h1 style="text-align: center"> You registered successfully! Happy New Year))))))</h1>
 
-<% try (FileWriter fileWriter = new FileWriter("C:\\Users\\vadim\\IdeaProjects\\HomeWorkWithJSP\\src\\main\\webapp\\info.txt")) {
+<% try (FileWriter fileWriter = new FileWriter(filePath)) {
     fileWriter.write("Login: " + login + "\n");
     fileWriter.write("Password: " + password);
 } catch (FileNotFoundException e) {
-    File file = new File("C:\\Users\\vadim\\IdeaProjects\\HomeWorkWithJSP\\src\\main\\webapp\\info.txt");
+    File file = new File(filePath);
 }
 %>
 <%}%>
